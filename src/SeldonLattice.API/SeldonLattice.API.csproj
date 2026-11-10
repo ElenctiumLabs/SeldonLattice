@@ -28,7 +28,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.15" />
     <!-- Swashbuckle 10.3.1 depends on Microsoft.OpenApi 2.7.5. Keep this aligned
          with that version: 3.x changes interface signatures and fails at runtime. -->
-    <PackageReference Include="Microsoft.OpenApi" Version="2.7.5" />
+    <PackageReference Include="Microsoft.OpenApi" Version="3.11.0" />
     <PackageReference Include="Microsoft.SemanticKernel.Abstractions" Version="1.81.0" />
     <PackageReference Include="Plainsentinel.Sdk" Version="1.0.1" />
     <PackageReference Include="Plainsentinel.Telemetry" Version="1.0.1" />
