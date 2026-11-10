@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Options" Version="11.0.0" />
-    <PackageReference Include="Microsoft.SemanticKernel.Abstractions" Version="1.81.0" />
+    <PackageReference Include="Microsoft.SemanticKernel.Abstractions" Version="1.82.0" />
   </ItemGroup>
 
   <PropertyGroup>

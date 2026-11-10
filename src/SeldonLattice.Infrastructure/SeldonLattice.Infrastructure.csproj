@@ -14,7 +14,7 @@
     <!-- Owns OptionsConfigurationServiceCollectionExtensions.Configure<TOptions>(IServiceCollection,
          IConfiguration) - the overload every module option binding in this project uses. -->
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="11.0.0" />
-    <PackageReference Include="Microsoft.SemanticKernel.Abstractions" Version="1.81.0" />
+    <PackageReference Include="Microsoft.SemanticKernel.Abstractions" Version="1.82.0" />
     <PackageReference Include="Microsoft.SemanticKernel.Connectors.OpenAI" Version="1.81.0" />
     <!-- Gemini connector ships alpha-only on NuGet (no 1.81.0 stable exists), and its
          absence also removes the IConfigurationSection overload of Configure<TOptions>,

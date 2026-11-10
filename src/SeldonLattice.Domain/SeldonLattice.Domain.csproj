@@ -19,7 +19,7 @@
   <ItemGroup>
     <PackageReference Include="MessagePack" Version="3.1.12" />
     <PackageReference Include="MessagePack.Annotations" Version="3.1.12" />
-    <PackageReference Include="Microsoft.SemanticKernel.Abstractions" Version="1.81.0" />
+    <PackageReference Include="Microsoft.SemanticKernel.Abstractions" Version="1.82.0" />
   </ItemGroup>
 
 </Project>
