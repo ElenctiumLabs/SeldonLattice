@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security vulnerability
+    url: mailto:contact@seldonlattice.com
+    about: Report a security issue privately (see SECURITY.md).
+  - name: Seldon Lattice website
+    url: https://seldonlattice.com
+    about: Project information and documentation.

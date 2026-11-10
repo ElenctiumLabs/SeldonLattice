@@ -1,0 +1,64 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <NoWarn>CS0618</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <!-- Embedding continuity reference: the known-good sentinel vector for the space the stored
+       corpus lives in. The embedding service resolves it relative to AppContext.BaseDirectory,
+       so it must be copied to the output directory or the continuity check silently skips
+       (and a changed vector space would go undetected). Update (not Include) because the Web
+       SDK already picks up Content items from the project directory. -->
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="14.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.14" />
+    <!-- Swashbuckle 10.3.1 depends on Microsoft.OpenApi 2.7.5. Keep this aligned
+         with that version: 3.x changes interface signatures and fails at runtime. -->
+    <PackageReference Include="Microsoft.OpenApi" Version="2.7.5" />
+    <PackageReference Include="Microsoft.SemanticKernel.Abstractions" Version="1.81.0" />
+    <PackageReference Include="Plainsentinel.Sdk" Version="1.0.1" />
+    <PackageReference Include="Plainsentinel.Telemetry" Version="1.0.1" />
+    <PackageReference Include="Serilog" Version="4.4.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="6.1.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="10.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="10.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="10.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SeldonLattice.Infrastructure\SeldonLattice.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="data\" />
+    <Folder Include="Data\" />
+    <Folder Include="Data\merkle\" />
+    <Folder Include="data\pqc-keys\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="data\pqc-keys\frankl.mldsa.json" />
+    <_ContentIncludedByDefault Remove="data\pqc-keys\habermas.mldsa.json" />
+    <_ContentIncludedByDefault Remove="data\pqc-keys\heidegger.mldsa.json" />
+    <_ContentIncludedByDefault Remove="data\pqc-keys\rawls.mldsa.json" />
+    <_ContentIncludedByDefault Remove="data\pqc-keys\socrates.mldsa.json" />
+    <_ContentIncludedByDefault Remove="data\pqc-keys\system.mldsa.json" />
+  </ItemGroup>
+
+</Project>

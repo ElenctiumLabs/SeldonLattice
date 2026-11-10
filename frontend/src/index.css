@@ -1,0 +1,195 @@
+@import "tailwindcss";
+@import "./theme/prime-radiant-tokens.css";
+
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+  /* Native ClearType subpixel rendering - avoids blurring on Windows/standard-DPI */
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+  text-rendering: geometricPrecision;
+}
+
+#root {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--pr-border);
+  border-radius: 9999px;
+  border: 2px solid var(--pr-surface);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pr-border-strong);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+/* GPU layer isolation - prevents backdrop-filter from degrading text rendering */
+.pr-glass-surface {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+@keyframes slow-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.status-dot {
+  animation: slow-blink 3s ease-in-out infinite;
+}
+
+.react-flow.pr-graph-canvas {
+  background: transparent;
+}
+.react-flow__minimap {
+  background: var(--pr-surface) !important;
+  border: 1px solid var(--pr-border) !important;
+  border-radius: var(--pr-radius) !important;
+}
+.react-flow__controls {
+  border: 1px solid var(--pr-border) !important;
+  border-radius: var(--pr-radius) !important;
+  overflow: hidden;
+}
+.react-flow__controls-button {
+  background: var(--pr-surface-raised) !important;
+  border-bottom: 1px solid var(--pr-border) !important;
+  color: var(--pr-text-muted) !important;
+  fill: var(--pr-text-muted) !important;
+}
+.react-flow__controls-button:hover {
+  background: var(--pr-surface) !important;
+  color: var(--pr-role-proposer-soft) !important;
+  fill: var(--pr-role-proposer-soft) !important;
+}
+
+/* -- Responsive Utilities ------------------------------------------------ */
+@media (max-width: 767px) {
+  .pr-graph-canvas .react-flow__minimap {
+    display: none;
+  }
+}
+
+/* Ensure minimum 44px touch targets on mobile */
+@media (max-width: 767px) {
+  button, a, input[type="range"], .toggle-switch {
+    min-height: 44px;
+  }
+  input[type="range"] {
+    height: 44px;
+  }
+}
+
+/* -- Print Styles -------------------------------------------------------- */
+@page {
+  margin: 14mm 12mm;
+}
+
+@media print {
+  html,
+  body {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    background: white !important;
+    color: #1a1a1a !important;
+  }
+
+  /* The app shell is replaced by the print container appended to <body>. Hiding it
+     prevents the viewport-sized shell and its overlays from contributing pages. */
+  body > #root { display: none !important; }
+
+  /* On screen the container is a fixed, viewport-sized overlay. In print it must be a
+     normal flow element with auto height, or the browser clips the report to one page. */
+  #seldon-print-container {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    background: white !important;
+    z-index: auto !important;
+  }
+
+  .pr-header, .pr-sidebar, .pr-footer,
+  .react-flow__controls, .react-flow__minimap,
+  .no-print, nav, aside, button { display: none !important; }
+
+  .print-view {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    background: white !important;
+    color: #1a1a1a !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print-header { margin-bottom: 24pt; border-bottom: 2pt solid #1a1a1a; padding-bottom: 12pt; }
+  .print-header h1 { font-size: 18pt; font-weight: bold; margin-bottom: 8pt; }
+  .print-meta { display: flex; flex-wrap: wrap; gap: 16pt; font-size: 9pt; color: #555; }
+  .print-meta strong { color: #1a1a1a; }
+
+  /* A round can be longer than a page, so only individual turns are kept intact. */
+  .print-section { margin-bottom: 18pt; }
+  .print-section h2 { font-size: 13pt; font-weight: bold; margin-bottom: 8pt; border-bottom: 1pt solid #ccc; padding-bottom: 4pt; break-after: avoid; page-break-after: avoid; }
+
+  .print-table { width: 100%; border-collapse: collapse; font-size: 9pt; }
+  .print-table td { padding: 4pt 8pt; border: 1pt solid #ddd; }
+  .print-table td:first-child { font-weight: bold; width: 40%; background: #f5f5f5; }
+
+  .print-turn { margin-bottom: 14pt; break-inside: avoid; page-break-inside: avoid; border-left: 3pt solid #b8924a; padding-left: 10pt; }
+  .print-turn-header { display: flex; gap: 12pt; align-items: baseline; margin-bottom: 4pt; }
+  .print-speaker { font-weight: bold; font-size: 10pt; }
+  .print-role { font-size: 8pt; text-transform: uppercase; color: #888; }
+  .print-time { font-size: 8pt; color: #aaa; margin-left: auto; }
+  .print-content { font-size: 10pt; line-height: 1.5; white-space: pre-wrap; orphans: 3; widows: 3; }
+  .print-metrics { display: flex; gap: 12pt; font-size: 8pt; color: #666; margin-top: 4pt; }
+
+  .print-footer { margin-top: 24pt; border-top: 1pt solid #ccc; padding-top: 8pt; font-size: 8pt; color: #888; text-align: center; break-before: avoid; page-break-before: avoid; }
+}
