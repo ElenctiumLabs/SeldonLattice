@@ -32,7 +32,7 @@
          entries into deps.json, so testhost.dll and Microsoft.TestPlatform.*.dll are
          copied to the output but are invisible to the host (FileNotFoundException on
          Microsoft.TestPlatform.CoreUtilities). -->
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.11.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.11.1" />
   </ItemGroup>
 
 </Project>
