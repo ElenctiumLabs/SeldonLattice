@@ -4,6 +4,16 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    groups:
+      microsoft-extensions:
+        patterns:
+          - "Microsoft.Extensions.*"
+      microsoft-entityframeworkcore:
+        patterns:
+          - "Microsoft.EntityFrameworkCore*"
+      microsoft-aspnetcore:
+        patterns:
+          - "Microsoft.AspNetCore.*"
     labels:
       - dependencies
   - package-ecosystem: npm

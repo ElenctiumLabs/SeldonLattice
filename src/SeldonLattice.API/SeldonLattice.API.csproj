@@ -23,9 +23,9 @@
 
   <ItemGroup>
     <PackageReference Include="MediatR" Version="14.3.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.14" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.14" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.15" />
     <!-- Swashbuckle 10.3.1 depends on Microsoft.OpenApi 2.7.5. Keep this aligned
          with that version: 3.x changes interface signatures and fails at runtime. -->
     <PackageReference Include="Microsoft.OpenApi" Version="2.7.5" />
