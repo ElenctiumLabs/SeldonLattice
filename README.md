@@ -15,6 +15,24 @@ your models, and streams the debate to an interactive mind map.
 - Local llama.cpp inference for chat and embeddings, or any OpenAI-compatible endpoint.
 - Optional Seq and OpenTelemetry export.
 
+## Screenshots
+
+The application running a live debate.
+
+**Choosing a framework**: the philosophy module and the research orchestrator.
+
+![Choosing a framework](docs/images/framework-picker.png)
+
+**The dialectical mind map**: every turn of the ascent as a node, with proposer and skeptic moves
+on opposite branches and mediated syntheses on the spine. This run climbed five rounds and 41 turns
+from "What happens when a body of knowledge is used to examine itself?"
+
+![The dialectical mind map](docs/images/mind-map.png)
+
+**Turn inspector**: the full text of a turn with its quality metrics.
+
+![Turn inspector](docs/images/inspector.png)
+
 ## Repository layout
 
 | Path | What it is |
