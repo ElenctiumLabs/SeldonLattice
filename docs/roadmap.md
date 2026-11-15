@@ -7,5 +7,6 @@ and its frontend; the immediate priorities are:
 - Make the gate's decisions more transparent and inspectable.
 - Publish the Sentinel integration as a public package and remove the local package feed.
 
-Work is tracked through GitHub issues. Large design changes are proposed in an issue before
-implementation.
+Work is tracked through [GitHub Issues](https://github.com/ElenctiumLabs/SeldonLattice/issues).
+Large design changes are proposed in an issue before implementation — look for issues labelled
+`design` or `discussion` if you want to get involved early.

@@ -382,7 +382,8 @@ tools/docs-viewer/node_modules/
 tools/docs-viewer/dist/
 
 # Local GGUF model files - multi-GB, never commit
-models/**/*.gguf
+models/*
+!models/README.md
 
 # Local environment files (never commit credentials)
 .env
