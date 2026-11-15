@@ -1,5 +1,9 @@
 # Seldon Lattice
 
+[![CI](https://github.com/ElenctiumLabs/SeldonLattice/actions/workflows/ci.yml/badge.svg)](https://github.com/ElenctiumLabs/SeldonLattice/actions/workflows/ci.yml)
+[![Security Scan](https://github.com/ElenctiumLabs/SeldonLattice/actions/workflows/security-scan.yml/badge.svg)](https://github.com/ElenctiumLabs/SeldonLattice/actions/workflows/security-scan.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 A dialectical reasoning engine. Two role-based agents debate a question, mediators bridge
 their positions, a moderator synthesizes a higher-level inquiry, and a gate decides whether
 the ascent continues. Every node is content-addressed and signed in a Merkle store.
@@ -51,6 +55,13 @@ from "What happens when a body of knowledge is used to examine itself?"
   OpenAI-compatible endpoint (see `docs/setup.md`)
 
 ## Quick start
+
+> **Before you build:** `Plainsentinel.Sdk` and `Plainsentinel.Telemetry` are not yet on
+> nuget.org. The `.nupkg` files are committed under `nuget/local/` and `nuget.config`
+> points there, so `dotnet restore` works without any extra steps — but if you see NuGet
+> restore errors, confirm you are restoring from the solution file (`SeldonLattice.slnx`),
+> not a project file directly. See [docs/setup.md](docs/setup.md#8-local-plainsentinel-packages)
+> for details.
 
 ### Backend
 
